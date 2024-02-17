@@ -1,0 +1,40 @@
+Discussion1
+1. After installing XAMPP application and if you need to save your  
+PHP files on your PC, in what a place can you save it and in what  
+extension for these files?
+
+A-inside the (htdocs directory) For example you can create a folder called myproject in C:\xampp\htdocs.
+Save your PHP files inside the folder you created, with the .php extension.
+
+2. htdocs is acronyms for what?
+
+A-htdocs stands for hypertext documents
+
+3. Suppose your PC is running with Windows operating system, can  
+you install MAMP package on it? Explain your answer‌‌?
+
+A-Yes, you can install MAMP package on your Windows PC. MAMP is a local server environment that can be installed under macOS and Windows with just a few clicks.
+MAMP stands for Macintosh, Apache, MySQL, and PHP, but it also works on Windows systems. MAMP allows you to run web applications such as WordPress, Joomla, 
+Drupal, etc. on your local machine for testing or development purposes
+To install MAMP on  Windows PC, you need to download the MAMP installation package from the official website and follow the setup wizard instructions.
+
+4. Give me some examples about some web sites that are built with  
+PHP.?
+
+A-some of the names of the popular websites that use PHP:
+1-Facebook
+2-Wikipedia
+3-WordPress
+4-MailChimp
+5-Vimeo
+
+5. As you remember, JavaScript is a popular client-side programming  
+language and it has the ability to change the content and style of a  
+web page dynamically. One question you may be asking is, “Why  
+do we need a server-side programming language, too?”
+
+A-Some of the benefits and reasons for using server-side programming languages are:
+
+ - Efficient storage and delivery of information: Server-side languages can store and retrieve data from databases, files, or other sources, and send it to the client as needed.
+ - Customized user experience: Server-side languages can use information from the client, such as cookies, sessions, or user input, to create dynamic and personalized web pages that suit the user's preferences and needs.
+ - Controlled access to content: Server-side languages can implement authentication and authorization mechanisms to restrict access to certain web pages or resources only to authorized users.
