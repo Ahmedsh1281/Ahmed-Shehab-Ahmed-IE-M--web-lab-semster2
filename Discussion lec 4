@@ -1,0 +1,55 @@
+Discussion lec 4
+1- What is a regular expression and how is it used in PHP?
+A regular expression, often abbreviated as regex, is a sequence of characters that defines a search pattern. In PHP, regular expressions are used for text search and text replace operations. They are implemented through functions like preg_match, preg_replace, and preg_match_all. These functions allow you to perform complex pattern-matching and text-processing tasks¹. For example:
+
+<? php
+// Check if the string contains the word "Copilot"
+if (preg_match("/Copilot/", "Hello Copilot!")) {
+    echo "Match found!";
+}
+?>
+
+2- What are some of the most commonly used regular expression functions in  
+PHP, and what do they do?
+Some of the most commonly used regular expression functions in PHP are:
+
+- preg_match(): Checks if a pattern is present in a string. Returns 1 if a match is found, 0 otherwise.
+- preg_match_all(): Similar to preg_match(), but finds all occurrences of the pattern in a string and returns the count.
+- preg_replace(): Performs a search and replace with the given pattern in a string.
+- preg_split(): Splits a string into an array by a regular expression pattern.
+
+These functions are powerful for pattern matching and text processing tasks.
+
+3- What is the difference between the preg_match() and preg_match_all()  
+functions?
+The difference between preg_match() and preg_match_all() in PHP is that preg_match() searches for the first occurrence of a pattern in a string and stops when it finds it, while preg_match_all() continues to search the string and finds all occurrences of the pattern¹. Here's a quick example:  <?php
+ $subject = "The rain in SPAIN falls mainly on the plains.";
+ // preg_match() example
+ if (preg_match("/ain/i", $subject, $matches)) {
+   echo "First match: " . $matches[0]; // Outputs "ain"
+ }
+
+ // preg_match_all() example
+ if (preg_match_all("/ain/i", $subject, $matches)) {
+   echo "All matches: ";
+   print_r($matches[0]); // Outputs Array ( [0] => ain [1] => AIN [2] => ain )
+ }
+ ?>
+ In this example, preg_match() finds the first "ain" regardless of case, and preg_match_all() finds all instances of "ain".
+
+4- How do you use regular expressions to search and replace text in PHP? Give  
+a code example.
+You can use regular expressions to search and replace text in PHP with the preg_replace() function. Here's a code example that replaces all occurrences of "cat" with "dog" in a given string:
+
+
+ <?php
+ $text = "The cat sat on the mat.";
+ $pattern = "/cat/";
+ $replacement = "dog";
+
+ $replacedText = preg_replace($pattern, $replacement, $text);
+
+ echo $replacedText; // Outputs: The dog sat on the mat.
+ ?>
+ 
+ In this example, preg_replace() takes three parameters: the pattern to search for, the replacement text, and the original text. It returns a new string with the pattern replaced by the replacement text.
