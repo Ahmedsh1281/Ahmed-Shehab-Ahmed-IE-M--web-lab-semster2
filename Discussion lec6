@@ -1,0 +1,38 @@
+Discussion 6
+1- As programming concepts with open and create a file. It is better to close 
+the file after you have finished working with it. Why?
+
+Closing a file after you've finished working with it is important for several reasons:
+
+- **Resource Management**: Each open file consumes system resources. Closing files helps free up these resources.
+- **Data Integrity**: Closing a file ensures that all data is properly written and saved.
+- **File Locks**: It releases any locks on the file, allowing other processes to access it.
+- **Limitation**: Operating systems have a limit on how many files can be open at once; closing files prevents reaching this limit.
+In programming, it's a best practice to close files to avoid potential issues with resource exhaustion or data corruption.
+
+2- Write a program in PHP to create a file contains 5 short sentences then 
+read each character and print it in a single line.
+
+<?php
+// The sentences to be written to the file
+$sentences = "Sentence one.\nSentence two.\nSentence three.\nSentence four.\nSentence five.\n";
+
+// Create and write the sentences to a new file
+file_put_contents('sentences.txt', $sentences);
+
+// Open the file for reading
+$file = fopen('sentences.txt', 'r');
+
+// Check if the file opened successfully
+if ($file) {
+    // Read each character and print it
+    while (($char = fgetc($file)) !== false) {
+        echo $char;
+    }
+    // Close the file
+    fclose($file);
+} else {
+    echo "Error opening the file.";
+}
+?>
+
