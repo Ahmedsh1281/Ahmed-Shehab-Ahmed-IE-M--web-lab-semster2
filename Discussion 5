@@ -1,0 +1,75 @@
+Discussion5
+1- What are the differences between GET & POST methods?
+differences between GET and POST methods:
+
+GET:
+•Used to request data from a server.
+•Data is sent as URL parameters.
+•Can be cached and bookmarked.
+•Has length restrictions.
+•Less secure, as data is visible in the URL.
+POST:
+•Used to send data to a server to create or update resources.
+•Data is sent in the request body.
+•Cannot be cached or bookmarked.
+•No restrictions on data length.
+•More secure, as data is not displayed in the URL.
+
+2- Write a PHP script to create a form for entering three names and their 
+
+emails and then print the names with the emails on the web page as sorting 
+
+ascending. (Use GET method in your form).
+<?php
+if (isset($_GET['submit'])) {
+    // Create an associative array to store names and emails
+    $people = [
+        ['name' => $_GET['name1'], 'email' => $_GET['email1']],
+        ['name' => $_GET['name2'], 'email' => $_GET['email2']],
+        ['name' => $_GET['name3'], 'email' => $_GET['email3']]
+    ];
+
+    // Sort the array by name
+    usort($people, function($a, $b) {
+        return strcmp($a['name'], $b['name']);
+    });
+
+    // Print the sorted names and emails
+    echo "<ul>";
+    foreach ($people as $person) {
+        echo "<li>" . htmlspecialchars($person['name']) . ": " . htmlspecialchars($person['email']) . "</li>";
+    }
+    echo "</ul>";
+} else {
+?>
+    <form action="" method="get">
+        Name 1: <input type="text" name="name1" required>
+        Email 1: <input type="email" name="email1" required><br>
+        Name 2: <input type="text" name="name2" required>
+        Email 2: <input type="email" name="email2" required><br>
+        Name 3: <input type="text" name="name3" required>
+        Email 3: <input type="email" name="email3" required><br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+<?php
+}
+?>
+
+3- There are many other methods besides those mentioned in this lecture that 
+
+could be used to avoid hacking operations. Mention some of them and give 
+
+an example of one of them.
+In PHP, there are several methods to help protect against hacking operations. Some of these include:
+
+- **Data Sanitization**: Cleaning input data to prevent SQL injection, XSS, and other attacks.
+- **Input Validation**: Ensuring the data received matches expected patterns and types.
+- **Using Prepared Statements**: With PDO or MySQLi to prevent SQL injection.
+- **Error Handling**: Configuring error reporting to not display sensitive information.
+- **Session Security**: Using secure session options and regenerating session IDs.
+
+For example, to prevent SQL injection, you can use prepared statements with bound parameters:
+$pdo = new PDO('mysql:host=example.com;dbname=database', 'username', 'password');
+$stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username AND password = :password');
+$stmt->execute(['username' => $username, 'password' => $password]);
+
